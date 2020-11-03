@@ -1,0 +1,250 @@
+/* General style */
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+
+/* Grid container */
+
+.container {
+    margin: 10px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 500px;
+    grid-auto-flow: dense;
+    gap: 10px;
+    background-color: white;
+}
+
+
+/* Grid items general rules */
+
+.gallery-item {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.gallery-item .image {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    filter: grayscale(1);
+}
+
+.gallery-item .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gallery-item:hover .image {
+    filter: grayscale(0);
+}
+
+
+/* First animation */
+
+.gallery-item .text {
+    opacity: 0;
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    color: white;
+    font-size: 1.5em;
+    pointer-events: none;
+}
+
+.gallery-item .text span {
+    padding-left: 30px;
+    padding-right: 10px;
+    margin-left: 0;
+    background-color: black;
+}
+
+@keyframes slide-right {
+    from {
+        margin-left: -100%;
+    }
+    to {
+        margin-left: 5%;
+    }
+}
+
+.gallery-item:hover .text {
+    opacity: 1;
+    width: 100%;
+    animation: 1.5s slide-right;
+}
+
+
+/* Responsive layout with media query */
+
+
+/* Phone */
+
+@media only screen and (min-width: 100px) and (max-width: 820px) {
+    .container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .img5 img {
+        object-position: 80%;
+    }
+    .img7 img {
+        object-position: 75%;
+    }
+    .img8 img {
+        object-position: 0%;
+    }
+    .img12 img {
+        object-position: 60%;
+    }
+    .img15 img {
+        object-position: 57%;
+    }
+    .img17 img {
+        object-position: 85%;
+    }
+    .img10 {
+        grid-row: span 2;
+    }
+    .img18 {
+        grid-row: span 2;
+    }
+}
+
+
+/* Tablet */
+
+@media only screen and (min-width: 821px) and (max-width: 1366px) {
+    .container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .img2 img {
+        object-position: 50% 93%;
+    }
+    .img8 img {
+        object-position: 50% 5%;
+    }
+    .img22 img {
+        object-position: 50% 10%;
+    }
+    .img1 {
+        grid-row: span 2;
+        grid-column: span 1;
+    }
+    .img2 {
+        grid-row: span 1;
+        grid-column: span 2;
+    }
+    .img3 {
+        grid-row: span 1;
+        grid-column: span 2;
+    }
+    .img5 {
+        grid-row: span 1;
+        grid-column: span 2;
+    }
+    .img7 {
+        grid-row: span 1;
+        grid-column: span 2;
+    }
+    .img8 {
+        grid-row: span 1;
+        grid-column: span 2;
+    }
+    .img10 {
+        grid-row: span 2;
+        grid-column: span 1;
+    }
+    .img11 {
+        grid-row: span 1;
+        grid-column: span 2;
+    }
+    .img12 {
+        grid-row: span 1;
+        grid-column: span 2;
+    }
+    .img14 {
+        grid-row: span 2;
+        grid-column: span 1;
+    }
+    .img15 {
+        grid-row: span 1;
+        grid-column: span 2;
+    }
+    .img17 {
+        grid-row: span 1;
+        grid-column: span 2;
+    }
+}
+
+
+/* Laptop */
+
+@media only screen and (min-width: 1367px) {
+    .container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .img2 img {
+        object-position: 50% 90%;
+    }
+    .img8 img {
+        object-position: 50% 5%;
+    }
+    .img18 img {
+        object-position: 50% 5%;
+    }
+    .img1 {
+        grid-row: span 2;
+        grid-column: span 1;
+    }
+    .img2 {
+        grid-row: span 1;
+        grid-column: span 2;
+    }
+    .img3 {
+        grid-row: span 1;
+        grid-column: span 2;
+    }
+    .img5 {
+        grid-row: span 1;
+        grid-column: span 2;
+    }
+    .img7 {
+        grid-row: span 1;
+        grid-column: span 2;
+    }
+    .img8 {
+        grid-row: span 1;
+        grid-column: span 2;
+    }
+    .img10 {
+        grid-row: span 2;
+        grid-column: span 1;
+    }
+    .img11 {
+        grid-row: span 1;
+        grid-column: span 2;
+    }
+    .img12 {
+        grid-row: span 1;
+        grid-column: span 2;
+    }
+    .img15 {
+        grid-row: span 1;
+        grid-column: span 2;
+    }
+    .img17 {
+        grid-row: span 1;
+        grid-column: span 2;
+    }
+    .img18 {
+        grid-row: span 2;
+        grid-column: span 1;
+    }
+    /* !Keep the total numbers of rows and columns divisible by the number of max columns for each viewtype (2, 4 in this case). Counting span columns and rows to achive a responsive layout without empty spaces. */
+}
